@@ -22,11 +22,11 @@ void MainWindow::slotClientRead()
 
 void MainWindow::slotClientDisconect()
 {
-    socket->deleteLater();
+    mTcpSocket->deleteLater();
 }
 
 void MainWindow::on_sendMButton_clicked()
 {
-    socket->connectToHost("127.0.0.1", 33333);
+    mTcpSocket->connectToHost("127.0.0.1", 33333);
 }
 
