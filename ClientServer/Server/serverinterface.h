@@ -1,5 +1,5 @@
-#ifndef MYTCPSERVER_H
-#define MYTCPSERVER_H
+#ifndef SERVERINTERFACE_H
+#define SERVERINTERFACE_H
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
@@ -7,13 +7,14 @@
 #include <QtNetwork>
 #include <QByteArray>
 #include <QDebug>
+#include <QList>
 
-class MyTcpServer : public QObject
+class ServerInterface : public QObject
 {
     Q_OBJECT
 public:
-    explicit MyTcpServer(QObject *parent = nullptr);
-    ~MyTcpServer();
+    explicit ServerInterface(QObject *parent = nullptr);
+    ~ServerInterface();
 public slots:
     void slotNewConnection();
     void slotClientDisconnected();
@@ -21,9 +22,10 @@ public slots:
 private:
     QTcpServer * mTcpServer;
     QTcpSocket * mTcpSocket;
+    QList<QTcpSocket> *sockets;
     //int server_status;
 };
-#endif // MYTCPSERVER_H
+#endif // SERVERINTERFACE_H
 
 
 
