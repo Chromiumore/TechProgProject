@@ -13,6 +13,8 @@ ServerInterface::~ServerInterface()
 ServerInterface::ServerInterface(QObject *parent) : QObject(parent){
     mTcpServer = new QTcpServer(this);
 
+    serverFunc = new ServerFunc;
+
     connect(mTcpServer, &QTcpServer::newConnection,
             this, &ServerInterface::slotNewConnection);
 
@@ -34,11 +36,18 @@ void ServerInterface::slotNewConnection(){
 }
 
 void ServerInterface::slotServerRead(){
+    QByteArray array;
+    QByteArray back_array;
+    int code = -101;
+
     while(mTcpSocket->bytesAvailable()>0)
     {
-        QByteArray array =mTcpSocket->readAll();
+        array =mTcpSocket->readAll();
         qDebug()<<array<<"\n";
-     }
+    }
+
+    code = serverFunc->parsing(QString(array));
+    mTcpSocket->write(back_array.setNum(code));
 }
 
 void ServerInterface::slotClientDisconnected(){

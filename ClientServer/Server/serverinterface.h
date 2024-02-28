@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <QList>
 
+#include "serverfunc.h"
+
 class ServerInterface : public QObject
 {
     Q_OBJECT
@@ -23,6 +25,8 @@ private:
     QTcpServer * mTcpServer;
     QTcpSocket * mTcpSocket;
     QList<QTcpSocket> *sockets;
+
+    ServerFunc *serverFunc;
     //int server_status;
 };
 #endif // SERVERINTERFACE_H
