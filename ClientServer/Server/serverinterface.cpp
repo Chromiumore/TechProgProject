@@ -32,24 +32,28 @@ void ServerInterface::slotNewConnection(){
 //        mTcpSocket->write("Hello, World!!! I am echo server!\r\n");
         connect(mTcpSocket, &QTcpSocket::readyRead,this,&ServerInterface::slotServerRead);
         connect(mTcpSocket,&QTcpSocket::disconnected,this,&ServerInterface::slotClientDisconnected);
+
+        qDebug() << "New connection!";
    // }
 }
 
 void ServerInterface::slotServerRead(){
     QByteArray array;
+    array.clear();
     QByteArray back_array;
     int code = -101;
 
     while(mTcpSocket->bytesAvailable()>0)
     {
         array =mTcpSocket->readAll();
-        qDebug()<<array<<"\n";
+        qDebug()<< array << "  |  " << QString(array) << "\n";
     }
 
     code = serverFunc->parsing(QString(array));
-    mTcpSocket->write(back_array.setNum(code));
+    mTcpSocket->write(back_array.setNum(code).append("\r\n"));
 }
 
 void ServerInterface::slotClientDisconnected(){
     mTcpSocket->close();
+    qDebug() << "Client disconnected!";
 }
