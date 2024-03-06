@@ -14,20 +14,20 @@ SOURCES += \
     authwindow.cpp \
     back.cpp \
     main.cpp \
-    mainwindow.cpp \
     userinterface.cpp \
-    workspace.cpp
+    workspace.cpp \
+    workwindow.cpp
 
 HEADERS += \
     authwindow.h \
     back.h \
-    mainwindow.h \
     userinterface.h \
-    workspace.h
+    workspace.h \
+    workwindow.h
 
 FORMS += \
     authwindow.ui \
-    mainwindow.ui
+    workwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

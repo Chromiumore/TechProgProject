@@ -2,21 +2,29 @@
 #define BACK_H
 
 #include <QTcpSocket>
+#include <QObject>
+#include <QtNetwork>
 
-class Back
+#include "userinterface.h"
+#include "workspace.h"
+
+QT_BEGIN_NAMESPACE
+
+class Back: public QObject
 {
     Q_OBJECT
 
 public:
-    QTcpSocket *socket;
-
     Back();
     ~Back();
 
-    bool sendToServer();
 public slots:
-    void slotReadyRead();
-    void slotDisconnected();
+    int slotClientRead();
+    void slotClientDisconect();
+    int slotClientSend();
+private:
+    QTcpSocket* mTcpSocket;
+    UserInterface *interface;
+    Workspace *ws;
 };
-
 #endif // BACK_H

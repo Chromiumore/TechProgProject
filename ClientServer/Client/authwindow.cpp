@@ -12,3 +12,14 @@ AuthWindow::~AuthWindow()
 {
     delete ui;
 }
+
+void AuthWindow::on_signInButton_clicked()
+{
+    emit signIn();
+}
+
+
+void AuthWindow::on_signUpButton_clicked()
+{
+    emit signUp();
+}

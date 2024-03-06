@@ -2,20 +2,25 @@
 #define USERINTERFACE_H
 
 #include "authwindow.h"
-#include "mainwindow.h"
+#include "workwindow.h"
+#include <QObject>
 
-class UserInterface
+class UserInterface : public QObject
 {
+
+//    Q_OBJECT
+
 public:
     UserInterface();
     ~UserInterface();
 
+public slots:
     void toMainWindow();
     void toAuthWindow();
 
 private:
     AuthWindow *authW;
-    MainWindow *mainW;
+    WorkWindow *mainW;
 };
 
 #endif // USERINTERFACE_H

@@ -27,15 +27,15 @@ public:
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
-    QLabel *label;
-    QLabel *label_2;
+    QLabel *loginLabel;
+    QLabel *passwordLabel;
     QVBoxLayout *verticalLayout_2;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
+    QLineEdit *loginLineEdit;
+    QLineEdit *passwordLineEdit;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton;
+    QPushButton *signInButton;
+    QPushButton *signUpButton;
 
     void setupUi(QDialog *AuthWindow)
     {
@@ -50,30 +50,30 @@ public:
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName("verticalLayout");
-        label = new QLabel(horizontalLayoutWidget);
-        label->setObjectName("label");
+        loginLabel = new QLabel(horizontalLayoutWidget);
+        loginLabel->setObjectName("loginLabel");
 
-        verticalLayout->addWidget(label);
+        verticalLayout->addWidget(loginLabel);
 
-        label_2 = new QLabel(horizontalLayoutWidget);
-        label_2->setObjectName("label_2");
+        passwordLabel = new QLabel(horizontalLayoutWidget);
+        passwordLabel->setObjectName("passwordLabel");
 
-        verticalLayout->addWidget(label_2);
+        verticalLayout->addWidget(passwordLabel);
 
 
         horizontalLayout->addLayout(verticalLayout);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
-        lineEdit = new QLineEdit(horizontalLayoutWidget);
-        lineEdit->setObjectName("lineEdit");
+        loginLineEdit = new QLineEdit(horizontalLayoutWidget);
+        loginLineEdit->setObjectName("loginLineEdit");
 
-        verticalLayout_2->addWidget(lineEdit);
+        verticalLayout_2->addWidget(loginLineEdit);
 
-        lineEdit_2 = new QLineEdit(horizontalLayoutWidget);
-        lineEdit_2->setObjectName("lineEdit_2");
+        passwordLineEdit = new QLineEdit(horizontalLayoutWidget);
+        passwordLineEdit->setObjectName("passwordLineEdit");
 
-        verticalLayout_2->addWidget(lineEdit_2);
+        verticalLayout_2->addWidget(passwordLineEdit);
 
 
         horizontalLayout->addLayout(verticalLayout_2);
@@ -84,15 +84,15 @@ public:
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(horizontalLayoutWidget_2);
-        pushButton_2->setObjectName("pushButton_2");
+        signInButton = new QPushButton(horizontalLayoutWidget_2);
+        signInButton->setObjectName("signInButton");
 
-        horizontalLayout_2->addWidget(pushButton_2);
+        horizontalLayout_2->addWidget(signInButton);
 
-        pushButton = new QPushButton(horizontalLayoutWidget_2);
-        pushButton->setObjectName("pushButton");
+        signUpButton = new QPushButton(horizontalLayoutWidget_2);
+        signUpButton->setObjectName("signUpButton");
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(signUpButton);
 
 
         retranslateUi(AuthWindow);
@@ -103,10 +103,10 @@ public:
     void retranslateUi(QDialog *AuthWindow)
     {
         AuthWindow->setWindowTitle(QCoreApplication::translate("AuthWindow", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("AuthWindow", "Login", nullptr));
-        label_2->setText(QCoreApplication::translate("AuthWindow", "Password", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("AuthWindow", "Sign in", nullptr));
-        pushButton->setText(QCoreApplication::translate("AuthWindow", "Sign up", nullptr));
+        loginLabel->setText(QCoreApplication::translate("AuthWindow", "Login", nullptr));
+        passwordLabel->setText(QCoreApplication::translate("AuthWindow", "Password", nullptr));
+        signInButton->setText(QCoreApplication::translate("AuthWindow", "Sign in", nullptr));
+        signUpButton->setText(QCoreApplication::translate("AuthWindow", "Sign up", nullptr));
     } // retranslateUi
 
 };
