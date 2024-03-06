@@ -4,15 +4,20 @@
 #include "authwindow.h"
 #include "workwindow.h"
 #include <QObject>
+#include <QString>
 
 class UserInterface : public QObject
 {
 
-//    Q_OBJECT
+    Q_OBJECT
 
 public:
     UserInterface();
     ~UserInterface();
+
+    void signIn();
+    void signUp();
+    void codeManager(int);
 
 public slots:
     void toMainWindow();
@@ -21,6 +26,10 @@ public slots:
 private:
     AuthWindow *authW;
     WorkWindow *mainW;
+
+signals:
+    void signInSignal(QString, QString);
+    void signUpSignal(QString, QString);
 };
 
 #endif // USERINTERFACE_H

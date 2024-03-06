@@ -12,23 +12,18 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_WorkWindow
 {
 public:
-    QPushButton *toAuthButton;
 
     void setupUi(QDialog *WorkWindow)
     {
         if (WorkWindow->objectName().isEmpty())
             WorkWindow->setObjectName("WorkWindow");
-        WorkWindow->resize(400, 300);
-        toAuthButton = new QPushButton(WorkWindow);
-        toAuthButton->setObjectName("toAuthButton");
-        toAuthButton->setGeometry(QRect(100, 90, 191, 111));
+        WorkWindow->resize(621, 455);
 
         retranslateUi(WorkWindow);
 
@@ -38,7 +33,6 @@ public:
     void retranslateUi(QDialog *WorkWindow)
     {
         WorkWindow->setWindowTitle(QCoreApplication::translate("WorkWindow", "Dialog", nullptr));
-        toAuthButton->setText(QCoreApplication::translate("WorkWindow", "Back to auth", nullptr));
     } // retranslateUi
 
 };

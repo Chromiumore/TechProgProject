@@ -16,12 +16,6 @@ public:
     explicit WorkWindow(QWidget *parent = nullptr);
     ~WorkWindow();
 
-private slots:
-    void on_toAuthButton_clicked();
-
-signals:
-    void toAuth();
-
 private:
     Ui::WorkWindow *ui;
 };

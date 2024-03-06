@@ -23,3 +23,13 @@ void AuthWindow::on_signUpButton_clicked()
 {
     emit signUp();
 }
+
+QString AuthWindow::getLogin()
+{
+    return ui->loginLineEdit->text();
+}
+
+QString AuthWindow::getPassword()
+{
+    return ui->passwordLineEdit->text();
+}

@@ -4,6 +4,7 @@
 #include <QTcpSocket>
 #include <QObject>
 #include <QtNetwork>
+#include <QString>
 
 #include "userinterface.h"
 #include "workspace.h"
@@ -19,11 +20,16 @@ public:
     ~Back();
 
 public slots:
-    int slotClientRead();
+    void slotClientRead();
     void slotClientDisconect();
     int slotClientSend();
+
+    void signInRequest(QString, QString);
+    void signUpRequest(QString, QString);
+    void statRequest(QString);
+
 private:
-    QTcpSocket* mTcpSocket;
+    QTcpSocket *mTcpSocket;
     UserInterface *interface;
     Workspace *ws;
 };

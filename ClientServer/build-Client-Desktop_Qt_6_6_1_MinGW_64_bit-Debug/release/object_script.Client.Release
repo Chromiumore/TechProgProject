@@ -1,0 +1,10 @@
+release/authwindow.o
+release/back.o
+release/main.o
+release/userinterface.o
+release/workspace.o
+release/workwindow.o
+release/moc_authwindow.o
+release/moc_back.o
+release/moc_userinterface.o
+release/moc_workwindow.o

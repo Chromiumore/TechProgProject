@@ -9,7 +9,6 @@ UserInterface::UserInterface()
     qDebug() << "UserInterface\n";
     qDebug() << "UserInterface\n";
     connect(authW, &AuthWindow::signIn, this, &UserInterface::toMainWindow);
-    connect(mainW, &WorkWindow::toAuth, this, &UserInterface::toAuthWindow);
 }
 
 UserInterface::~UserInterface()
@@ -31,4 +30,32 @@ void UserInterface::toMainWindow()
     authW->hide();
     mainW->show();
 }
+
+void UserInterface::signIn()
+{
+    emit signInSignal(authW->getLogin(), authW->getPassword());
+}
+
+void UserInterface::signUp()
+{
+    emit signUpSignal(authW->getLogin(), authW->getPassword());
+}
+
+void UserInterface::codeManager(int code)
+{
+    switch (code)
+    {
+    case 1:
+        qDebug() << "sign in\n";
+        break;
+    case 2:
+        qDebug() << "sign up\n";
+        break;
+    case 3:
+        qDebug() << "stat\n";
+        break;
+    }
+}
+
+
 

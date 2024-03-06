@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QObject>
 
+#include <QString>
+
 namespace Ui {
 class AuthWindow;
 }
@@ -15,6 +17,9 @@ class AuthWindow : public QDialog
 public:
     explicit AuthWindow(QWidget *parent = nullptr);
     ~AuthWindow();
+
+    QString getLogin();
+    QString getPassword();
 
 signals:
     void signUp();

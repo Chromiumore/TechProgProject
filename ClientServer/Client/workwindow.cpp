@@ -13,8 +13,4 @@ WorkWindow::~WorkWindow()
     delete ui;
 }
 
-void WorkWindow::on_toAuthButton_clicked()
-{
-    emit toAuth();
-}
 

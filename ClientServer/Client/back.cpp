@@ -1,4 +1,5 @@
 #include "back.h"
+#include <string>
 
 Back::Back()
 {
@@ -9,6 +10,9 @@ Back::Back()
 
     interface = new UserInterface;
     ws = new Workspace;
+
+    connect(interface, &UserInterface::signInSignal, this, &Back::signInRequest);
+    connect(interface, &UserInterface::signUpSignal, this, Back::signUpRequest);
 }
 
 Back::~Back()
@@ -17,7 +21,32 @@ Back::~Back()
     delete ws;
 }
 
-int Back::slotClientRead()
+void Back::signInRequest(QString login, QString password)
+{
+    std::string num = "1";
+    std::string sep = "%";
+    QString req = QString::fromStdString(num + sep + login.toStdString() + sep + password.toStdString());
+    mTcpSocket->write(req.toUtf8());
+}
+
+void Back::signUpRequest(QString login, QString password)
+{
+    std::string num = "2";
+    std::string sep = "%";
+    QString req = QString::fromStdString(num + sep + login.toStdString() + sep + password.toStdString());
+    mTcpSocket->write(req.toUtf8());
+}
+
+void Back::statRequest(QString login)
+{
+    std::string num = "3";
+    std::string sep = "%";
+    QString req = QString::fromStdString(num + sep + login.toStdString());
+    mTcpSocket->write(req.toUtf8());
+}
+
+
+void Back::slotClientRead()
 {
     QByteArray array;
 
@@ -26,10 +55,9 @@ int Back::slotClientRead()
         array = mTcpSocket->readAll();
         qDebug()<<array<<"\n";
     }
-
-    return 1;
-
+    interface->codeManager(array.toInt());
 }
+
 
 void Back::slotClientDisconect()
 {
