@@ -41,47 +41,39 @@ namespace {
 struct qt_meta_stringdata_CLASSBackENDCLASS_t {};
 static constexpr auto qt_meta_stringdata_CLASSBackENDCLASS = QtMocHelpers::stringData(
     "Back",
-    "slotClientRead",
-    "",
-    "slotClientDisconect",
-    "slotClientSend",
     "signInRequest",
+    "",
     "signUpRequest",
-    "statRequest"
+    "statRequest",
+    "back_parsing"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSBackENDCLASS_t {
-    uint offsetsAndSizes[16];
+    uint offsetsAndSizes[12];
     char stringdata0[5];
-    char stringdata1[15];
+    char stringdata1[14];
     char stringdata2[1];
-    char stringdata3[20];
-    char stringdata4[15];
-    char stringdata5[14];
-    char stringdata6[14];
-    char stringdata7[12];
+    char stringdata3[14];
+    char stringdata4[12];
+    char stringdata5[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSBackENDCLASS_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_CLASSBackENDCLASS_t qt_meta_stringdata_CLASSBackENDCLASS = {
     {
         QT_MOC_LITERAL(0, 4),  // "Back"
-        QT_MOC_LITERAL(5, 14),  // "slotClientRead"
-        QT_MOC_LITERAL(20, 0),  // ""
-        QT_MOC_LITERAL(21, 19),  // "slotClientDisconect"
-        QT_MOC_LITERAL(41, 14),  // "slotClientSend"
-        QT_MOC_LITERAL(56, 13),  // "signInRequest"
-        QT_MOC_LITERAL(70, 13),  // "signUpRequest"
-        QT_MOC_LITERAL(84, 11)   // "statRequest"
+        QT_MOC_LITERAL(5, 13),  // "signInRequest"
+        QT_MOC_LITERAL(19, 0),  // ""
+        QT_MOC_LITERAL(20, 13),  // "signUpRequest"
+        QT_MOC_LITERAL(34, 11),  // "statRequest"
+        QT_MOC_LITERAL(46, 12)   // "back_parsing"
     },
     "Back",
-    "slotClientRead",
-    "",
-    "slotClientDisconect",
-    "slotClientSend",
     "signInRequest",
+    "",
     "signUpRequest",
-    "statRequest"
+    "statRequest",
+    "back_parsing"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -93,7 +85,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSBackENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -101,20 +93,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSBackENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x0a,    1 /* Public */,
-       3,    0,   51,    2, 0x0a,    2 /* Public */,
-       4,    0,   52,    2, 0x0a,    3 /* Public */,
-       5,    2,   53,    2, 0x0a,    4 /* Public */,
-       6,    2,   58,    2, 0x0a,    7 /* Public */,
-       7,    1,   63,    2, 0x0a,   10 /* Public */,
+       1,    2,   38,    2, 0x0a,    1 /* Public */,
+       3,    2,   43,    2, 0x0a,    4 /* Public */,
+       4,    1,   48,    2, 0x0a,    7 /* Public */,
+       5,    1,   51,    2, 0x0a,    9 /* Public */,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Int,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    2,    2,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    2,    2,
     QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QByteArray,    2,
 
        0        // eod
 };
@@ -128,12 +116,6 @@ Q_CONSTINIT const QMetaObject Back::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSBackENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<Back, std::true_type>,
-        // method 'slotClientRead'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'slotClientDisconect'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'slotClientSend'
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'signInRequest'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
@@ -144,7 +126,10 @@ Q_CONSTINIT const QMetaObject Back::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'statRequest'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QString, std::false_type>
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'back_parsing'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QByteArray, std::false_type>
     >,
     nullptr
 } };
@@ -155,13 +140,10 @@ void Back::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         auto *_t = static_cast<Back *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->slotClientRead(); break;
-        case 1: _t->slotClientDisconect(); break;
-        case 2: { int _r = _t->slotClientSend();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 3: _t->signInRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 4: _t->signUpRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 5: _t->statRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 0: _t->signInRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 1: _t->signUpRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 2: _t->statRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 3: _t->back_parsing((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
         default: ;
         }
     }
@@ -186,13 +168,13 @@ int Back::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 4;
     }
     return _id;
 }

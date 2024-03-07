@@ -1,7 +1,6 @@
 #ifndef BACK_H
 #define BACK_H
 
-#include <QTcpSocket>
 #include <QObject>
 #include <QtNetwork>
 #include <QString>
@@ -20,16 +19,12 @@ public:
     ~Back();
 
 public slots:
-    void slotClientRead();
-    void slotClientDisconect();
-    int slotClientSend();
-
     void signInRequest(QString, QString);
     void signUpRequest(QString, QString);
     void statRequest(QString);
+    void back_parsing(QByteArray);
 
 private:
-    QTcpSocket *mTcpSocket;
     UserInterface *interface;
     Workspace *ws;
 };

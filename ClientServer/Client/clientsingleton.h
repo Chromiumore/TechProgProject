@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QtNetwork>
 #include <QString>
+#include <QByteArray>
 
 //#include "back.h"
 
@@ -19,11 +20,16 @@ public:
     void initialize(ClientSingleton * p);
 };
 
-class ClientSingleton
+class ClientSingleton: public QObject
 {
+    Q_OBJECT
+
 private:
     static ClientSingleton * instance;
     static ClientSingletonDestroyer destroyer;
+
+    QTcpSocket *mTcpSocket;
+    QByteArray array;
 
 protected:
     ClientSingleton();
@@ -34,6 +40,15 @@ protected:
 
 public:
     static ClientSingleton* getInstance();
+
+public slots:
+    void slotClientRead();
+    void slotClientDisconect();
+    void slotClientSend(QByteArray);
+
+signals:
+    void answerSignal(QByteArray);
+
 };
 
 

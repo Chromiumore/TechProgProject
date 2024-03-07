@@ -26,6 +26,13 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <widget class="QLabel" name="emailLabel">
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="loginLabel">
         <property name="text">
          <string>Login</string>
@@ -44,6 +51,9 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
+       <widget class="QLineEdit" name="emailLineEdit"/>
+      </item>
+      <item>
        <widget class="QLineEdit" name="loginLineEdit"/>
       </item>
       <item>
@@ -57,27 +67,43 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>210</y>
+     <y>240</y>
      <width>301</width>
      <height>31</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QPushButton" name="signInButton">
+     <widget class="QPushButton" name="signUpButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="text">
-       <string>Sign in</string>
+       <string>Регистрация</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="signUpButton">
+     <widget class="QPushButton" name="signInButton">
       <property name="text">
-       <string>Sign up</string>
+       <string>Вход</string>
       </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="confirmButton">
+   <property name="geometry">
+    <rect>
+     <x>262</x>
+     <y>180</y>
+     <width>111</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Подтвердить</string>
+   </property>
   </widget>
  </widget>
  <resources/>

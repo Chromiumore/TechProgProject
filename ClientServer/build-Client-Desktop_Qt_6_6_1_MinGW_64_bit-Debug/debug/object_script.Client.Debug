@@ -7,5 +7,6 @@ debug/workspace.o
 debug/workwindow.o
 debug/moc_authwindow.o
 debug/moc_back.o
+debug/moc_clientsingleton.o
 debug/moc_userinterface.o
 debug/moc_workwindow.o
