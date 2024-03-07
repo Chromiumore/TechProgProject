@@ -1,5 +1,6 @@
 #include "back.h"
 #include <string>
+#include <QDebug>
 
 Back::Back()
 {
@@ -21,17 +22,18 @@ Back::~Back()
     delete ws;
 }
 
-void Back::signInRequest(QString login, QString password)
+void Back::signUpRequest(QString login, QString password)
 {
     std::string num = "1";
     std::string sep = "%";
     QString req = QString::fromStdString(num + sep + login.toStdString() + sep + password.toStdString());
     mTcpSocket->write(req.toUtf8());
+    qDebug() << "signIn request: " << req;
 }
 
-void Back::signUpRequest(QString login, QString password)
+void Back::signInRequest(QString login, QString password)
 {
-    std::string num = "2";
+    std::string num = "0";
     std::string sep = "%";
     QString req = QString::fromStdString(num + sep + login.toStdString() + sep + password.toStdString());
     mTcpSocket->write(req.toUtf8());
@@ -39,7 +41,7 @@ void Back::signUpRequest(QString login, QString password)
 
 void Back::statRequest(QString login)
 {
-    std::string num = "3";
+    std::string num = "2";
     std::string sep = "%";
     QString req = QString::fromStdString(num + sep + login.toStdString());
     mTcpSocket->write(req.toUtf8());
@@ -53,7 +55,7 @@ void Back::slotClientRead()
     while(mTcpSocket->bytesAvailable()>0)
     {
         array = mTcpSocket->readAll();
-        qDebug()<<array<<"\n";
+        qDebug()<< "array: " << array<<"\n";
     }
     interface->codeManager(array.toInt());
 }

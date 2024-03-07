@@ -39,9 +39,9 @@ namespace {
 struct qt_meta_stringdata_CLASSAuthWindowENDCLASS_t {};
 static constexpr auto qt_meta_stringdata_CLASSAuthWindowENDCLASS = QtMocHelpers::stringData(
     "AuthWindow",
-    "signUp",
+    "signUpSignal",
     "",
-    "signIn",
+    "signInSignal",
     "on_signInButton_clicked",
     "on_signUpButton_clicked"
 );
@@ -49,9 +49,9 @@ static constexpr auto qt_meta_stringdata_CLASSAuthWindowENDCLASS = QtMocHelpers:
 struct qt_meta_stringdata_CLASSAuthWindowENDCLASS_t {
     uint offsetsAndSizes[12];
     char stringdata0[11];
-    char stringdata1[7];
+    char stringdata1[13];
     char stringdata2[1];
-    char stringdata3[7];
+    char stringdata3[13];
     char stringdata4[24];
     char stringdata5[24];
 };
@@ -60,16 +60,16 @@ struct qt_meta_stringdata_CLASSAuthWindowENDCLASS_t {
 Q_CONSTINIT static const qt_meta_stringdata_CLASSAuthWindowENDCLASS_t qt_meta_stringdata_CLASSAuthWindowENDCLASS = {
     {
         QT_MOC_LITERAL(0, 10),  // "AuthWindow"
-        QT_MOC_LITERAL(11, 6),  // "signUp"
-        QT_MOC_LITERAL(18, 0),  // ""
-        QT_MOC_LITERAL(19, 6),  // "signIn"
-        QT_MOC_LITERAL(26, 23),  // "on_signInButton_clicked"
-        QT_MOC_LITERAL(50, 23)   // "on_signUpButton_clicked"
+        QT_MOC_LITERAL(11, 12),  // "signUpSignal"
+        QT_MOC_LITERAL(24, 0),  // ""
+        QT_MOC_LITERAL(25, 12),  // "signInSignal"
+        QT_MOC_LITERAL(38, 23),  // "on_signInButton_clicked"
+        QT_MOC_LITERAL(62, 23)   // "on_signUpButton_clicked"
     },
     "AuthWindow",
-    "signUp",
+    "signUpSignal",
     "",
-    "signIn",
+    "signInSignal",
     "on_signInButton_clicked",
     "on_signUpButton_clicked"
 };
@@ -118,9 +118,9 @@ Q_CONSTINIT const QMetaObject AuthWindow::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSAuthWindowENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<AuthWindow, std::true_type>,
-        // method 'signUp'
+        // method 'signUpSignal'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'signIn'
+        // method 'signInSignal'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_signInButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -136,8 +136,8 @@ void AuthWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<AuthWindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->signUp(); break;
-        case 1: _t->signIn(); break;
+        case 0: _t->signUpSignal(); break;
+        case 1: _t->signInSignal(); break;
         case 2: _t->on_signInButton_clicked(); break;
         case 3: _t->on_signUpButton_clicked(); break;
         default: ;
@@ -146,14 +146,14 @@ void AuthWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (AuthWindow::*)();
-            if (_t _q_method = &AuthWindow::signUp; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &AuthWindow::signUpSignal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (AuthWindow::*)();
-            if (_t _q_method = &AuthWindow::signIn; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &AuthWindow::signInSignal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
@@ -193,13 +193,13 @@ int AuthWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void AuthWindow::signUp()
+void AuthWindow::signUpSignal()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 
 // SIGNAL 1
-void AuthWindow::signIn()
+void AuthWindow::signInSignal()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }

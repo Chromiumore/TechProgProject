@@ -294,6 +294,7 @@ debug/moc_authwindow.cpp: ../Client/authwindow.h \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		../../../../Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
+		../../../../Qt/6.6.1/mingw_64/include/QtCore/QString \
 		debug/moc_predefs.h \
 		../../../../Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Programming/rep/ClientServer/build-Client-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Programming/rep/ClientServer/Client -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Client\authwindow.h -o debug\moc_authwindow.cpp
@@ -837,8 +838,8 @@ debug/moc_userinterface.cpp: ../Client/userinterface.h \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		../../../../Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		../Client/workwindow.h \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/QString \
+		../Client/workwindow.h \
 		debug/moc_predefs.h \
 		../../../../Qt/6.6.1/mingw_64/bin/moc.exe
 	C:\Qt\6.6.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Programming/rep/ClientServer/build-Client-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -IC:/Programming/rep/ClientServer/Client -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Client\userinterface.h -o debug\moc_userinterface.cpp
@@ -1202,6 +1203,7 @@ debug/authwindow.o: ../Client/authwindow.cpp ../Client/authwindow.h \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		../../../../Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
+		../../../../Qt/6.6.1/mingw_64/include/QtCore/QString \
 		ui_authwindow.h \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/QVariant \
 		../../../../Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
@@ -2163,8 +2165,8 @@ debug/userinterface.o: ../Client/userinterface.cpp ../Client/userinterface.h \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/QSizeF \
 		../../../../Qt/6.6.1/mingw_64/include/QtGui/QTransform \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/qnativeinterface.h \
-		../Client/workwindow.h \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/QString \
+		../Client/workwindow.h \
 		../../../../Qt/6.6.1/mingw_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\userinterface.o ..\Client\userinterface.cpp
 

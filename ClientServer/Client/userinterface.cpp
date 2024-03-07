@@ -8,7 +8,8 @@ UserInterface::UserInterface()
     authW->show();
     qDebug() << "UserInterface\n";
     qDebug() << "UserInterface\n";
-    connect(authW, &AuthWindow::signIn, this, &UserInterface::toMainWindow);
+
+    connect(authW, &AuthWindow::signInSignal, this, &UserInterface::signIn);
 }
 
 UserInterface::~UserInterface()
@@ -34,6 +35,7 @@ void UserInterface::toMainWindow()
 void UserInterface::signIn()
 {
     emit signInSignal(authW->getLogin(), authW->getPassword());
+    qDebug() << "login and password: " << authW->getLogin() << ' ' << authW->getPassword() << "\n";
 }
 
 void UserInterface::signUp()
@@ -45,13 +47,13 @@ void UserInterface::codeManager(int code)
 {
     switch (code)
     {
-    case 1:
+    case 0:
         qDebug() << "sign in\n";
         break;
-    case 2:
+    case 1:
         qDebug() << "sign up\n";
         break;
-    case 3:
+    case 2:
         qDebug() << "stat\n";
         break;
     }

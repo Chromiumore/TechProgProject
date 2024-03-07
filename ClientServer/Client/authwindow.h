@@ -22,8 +22,8 @@ public:
     QString getPassword();
 
 signals:
-    void signUp();
-    void signIn();
+    void signUpSignal();
+    void signInSignal();
 
 private slots:
     void on_signInButton_clicked();

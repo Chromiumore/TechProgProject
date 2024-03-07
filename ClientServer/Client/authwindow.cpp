@@ -15,13 +15,13 @@ AuthWindow::~AuthWindow()
 
 void AuthWindow::on_signInButton_clicked()
 {
-    emit signIn();
+    emit signInSignal();
 }
 
 
 void AuthWindow::on_signUpButton_clicked()
 {
-    emit signUp();
+    emit signUpSignal();
 }
 
 QString AuthWindow::getLogin()
