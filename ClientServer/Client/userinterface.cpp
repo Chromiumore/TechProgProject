@@ -45,13 +45,13 @@ void UserInterface::codeManager(int code)
 {
     switch (code)
     {
-    case 1:
+    case 0:
         qDebug() << "sign in\n";
         break;
-    case 2:
+    case 1:
         qDebug() << "sign up\n";
         break;
-    case 3:
+    case 2:
         qDebug() << "stat\n";
         break;
     }

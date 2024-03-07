@@ -1,5 +1,6 @@
 debug/authwindow.o
 debug/back.o
+debug/clientsingleton.o
 debug/main.o
 debug/userinterface.o
 debug/workspace.o

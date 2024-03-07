@@ -23,7 +23,7 @@ Back::~Back()
 
 void Back::signInRequest(QString login, QString password)
 {
-    std::string num = "1";
+    std::string num = "0";
     std::string sep = "%";
     QString req = QString::fromStdString(num + sep + login.toStdString() + sep + password.toStdString());
     mTcpSocket->write(req.toUtf8());
@@ -31,7 +31,7 @@ void Back::signInRequest(QString login, QString password)
 
 void Back::signUpRequest(QString login, QString password)
 {
-    std::string num = "2";
+    std::string num = "1";
     std::string sep = "%";
     QString req = QString::fromStdString(num + sep + login.toStdString() + sep + password.toStdString());
     mTcpSocket->write(req.toUtf8());
@@ -39,7 +39,7 @@ void Back::signUpRequest(QString login, QString password)
 
 void Back::statRequest(QString login)
 {
-    std::string num = "3";
+    std::string num = "2";
     std::string sep = "%";
     QString req = QString::fromStdString(num + sep + login.toStdString());
     mTcpSocket->write(req.toUtf8());

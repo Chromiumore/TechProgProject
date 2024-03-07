@@ -1,5 +1,6 @@
 release/authwindow.o
 release/back.o
+release/clientsingleton.o
 release/main.o
 release/userinterface.o
 release/workspace.o
