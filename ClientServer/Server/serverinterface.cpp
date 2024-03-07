@@ -41,7 +41,7 @@ void ServerInterface::slotServerRead(){
     QByteArray array;
     array.clear();
     QByteArray back_array;
-    int code = -101;
+    int code;
 
     while(mTcpSocket->bytesAvailable()>0)
     {
@@ -50,7 +50,7 @@ void ServerInterface::slotServerRead(){
     }
 
     code = serverFunc->parsing(QString(array));
-    mTcpSocket->write(back_array.setNum(code).append("\r\n"));
+    mTcpSocket->write(back_array.setNum(code));
 }
 
 void ServerInterface::slotClientDisconnected(){
