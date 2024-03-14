@@ -1,5 +1,6 @@
 #include "serverfunc.h"
 #include <QDebug>
+#include "mydb.h"
 
 ServerFunc::ServerFunc()
 {
@@ -60,12 +61,14 @@ int ServerFunc::reg(QString login, QString password)
 int ServerFunc::lookStat(QString login)
 {
     qDebug() << "lookStat func\n";
+    MyDB::getInstance();
     return 2;
 }
 
 int ServerFunc::lookAllStat()
 {
     qDebug() << "lookAllStat func\n";
+    MyDB::getInstance();
     return 3;
 }
 

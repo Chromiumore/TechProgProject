@@ -224,6 +224,7 @@ Makefile: ../Server/echoServer.pro ../../../../Qt/6.6.1/mingw_64/mkspecs/win32-g
 		../../../../Qt/6.6.1/mingw_64/mkspecs/features/lex.prf \
 		../Server/echoServer.pro \
 		../../../../Qt/6.6.1/mingw_64/lib/Qt6Network.prl \
+		../../../../Qt/6.6.1/mingw_64/lib/Qt6Sql.prl \
 		../../../../Qt/6.6.1/mingw_64/lib/Qt6Core.prl \
 		../../../../Qt/6.6.1/mingw_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\Server\echoServer.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -381,6 +382,7 @@ Makefile: ../Server/echoServer.pro ../../../../Qt/6.6.1/mingw_64/mkspecs/win32-g
 ../../../../Qt/6.6.1/mingw_64/mkspecs/features/lex.prf:
 ../Server/echoServer.pro:
 ../../../../Qt/6.6.1/mingw_64/lib/Qt6Network.prl:
+../../../../Qt/6.6.1/mingw_64/lib/Qt6Sql.prl:
 ../../../../Qt/6.6.1/mingw_64/lib/Qt6Core.prl:
 ../../../../Qt/6.6.1/mingw_64/mkspecs/features/build_pass.prf:
 qmake: FORCE

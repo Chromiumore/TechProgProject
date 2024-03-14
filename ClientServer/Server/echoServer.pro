@@ -1,6 +1,7 @@
 QT -= gui
 
 QT += network #Для работы с сетью
+QT += sql # БД
 
 
 CONFIG += c++11 console
@@ -19,6 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
+    mydb.cpp \
     serverfunc.cpp \
     serverinterface.cpp
 
@@ -28,5 +30,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    mydb.h \
     serverfunc.h \
     serverinterface.h
