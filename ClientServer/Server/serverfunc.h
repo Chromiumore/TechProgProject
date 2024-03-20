@@ -12,7 +12,7 @@ public:
 
     int parsing(QString);
     int auth(QString, QString);
-    int reg(QString, QString);
+    int reg(QString, QString, QString);
     int lookStat(QString);
     int lookAllStat();
 

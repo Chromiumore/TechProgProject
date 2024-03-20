@@ -17,6 +17,9 @@ public:
 
 class MyDB
 {
+public:
+    int signInReq(QString login, QString password);
+    int signUpReq(QString login, QString password, QString email);
 
 private:
     static MyDB * instance;

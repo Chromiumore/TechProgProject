@@ -4,7 +4,7 @@
 
 ServerFunc::ServerFunc()
 {
-
+    MyDB::getInstance();
 }
 
 ServerFunc::~ServerFunc()
@@ -19,6 +19,7 @@ int ServerFunc::parsing(QString str)
 
     QString login = str.section('%', 1, 1);
     QString password = str.section('%', 2, 2);
+    QString email = str.section('%', 3, 3);
 
     qDebug() << func_code;
 
@@ -28,7 +29,7 @@ int ServerFunc::parsing(QString str)
         result_code = auth(login, password);
         break;
     case 1:
-        result_code = reg(login, password);
+        result_code = reg(login, password, email);
         break;
     case 2:
         result_code = lookStat(login);
@@ -50,36 +51,36 @@ int ServerFunc::parsing(QString str)
 int ServerFunc::auth(QString login, QString password)
 {
     qDebug() << "auth func\n";
-    return 0;
+    return MyDB::getInstance()->signInReq(login, password);
 }
-int ServerFunc::reg(QString login, QString password)
+int ServerFunc::reg(QString login, QString password, QString email)
 {
     qDebug() << "reg func\n";
-    return 1;
+    return MyDB::getInstance()->signUpReq(login, password, email);
 }
 
 int ServerFunc::lookStat(QString login)
 {
     qDebug() << "lookStat func\n";
     MyDB::getInstance();
-    return 2;
+    return 3;
 }
 
 int ServerFunc::lookAllStat()
 {
     qDebug() << "lookAllStat func\n";
     MyDB::getInstance();
-    return 3;
+    return 4;
 }
 
 bool ServerFunc::delUser(QString login)
 {
     qDebug() << "delUser func\n";
-    return 4;
+    return 5;
 }
 
 bool ServerFunc::resetStat(QString login)
 {
     qDebug() << "resetStat func\n";
-    return 5;
+    return 6;
 }
