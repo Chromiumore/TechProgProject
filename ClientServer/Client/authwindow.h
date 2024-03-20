@@ -20,16 +20,21 @@ public:
 
     QString getLogin();
     QString getPassword();
+    QString getEmail();
 
 signals:
-    void signUpSignal();
-    void signInSignal();
+    void signUp();
+    void signIn();
 
 private slots:
     void on_signInButton_clicked();
     void on_signUpButton_clicked();
 
+    void on_confirmButton_clicked();
+
 private:
+    bool isReg;
+
     Ui::AuthWindow *ui;
 };
 

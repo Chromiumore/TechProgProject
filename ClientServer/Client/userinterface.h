@@ -5,6 +5,7 @@
 #include "workwindow.h"
 #include <QObject>
 #include <QString>
+#include <QMessageBox>
 
 class UserInterface : public QObject
 {
@@ -27,9 +28,10 @@ private:
     AuthWindow *authW;
     WorkWindow *mainW;
 
+    QMessageBox message;
+
 signals:
-    void signInSignal(QString, QString);
-    void signUpSignal(QString, QString);
+    void signalFromInterface(int, QString, QString, QString);
 };
 
 #endif // USERINTERFACE_H

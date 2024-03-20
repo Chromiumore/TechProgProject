@@ -1,5 +1,6 @@
 #include "userinterface.h"
 #include <QDebug>
+#include <QMessageBox>
 
 UserInterface::UserInterface()
 {
@@ -8,8 +9,7 @@ UserInterface::UserInterface()
     authW->show();
     qDebug() << "UserInterface\n";
     qDebug() << "UserInterface\n";
-
-    connect(authW, &AuthWindow::signInSignal, this, &UserInterface::signIn);
+    connect(authW, &AuthWindow::signIn, this, &UserInterface::toMainWindow);
 }
 
 UserInterface::~UserInterface()
@@ -34,27 +34,38 @@ void UserInterface::toMainWindow()
 
 void UserInterface::signIn()
 {
-    emit signInSignal(authW->getLogin(), authW->getPassword());
-    qDebug() << "login and password: " << authW->getLogin() << ' ' << authW->getPassword() << "\n";
+    emit signalFromInterface(1, authW->getLogin(), authW->getPassword(), authW->getEmail());
 }
 
 void UserInterface::signUp()
 {
-    emit signUpSignal(authW->getLogin(), authW->getPassword());
+    emit signalFromInterface(2, authW->getLogin(), authW->getPassword(), authW->getEmail());
 }
 
 void UserInterface::codeManager(int code)
 {
     switch (code)
     {
-    case 0:
-        qDebug() << "sign in\n";
-        break;
     case 1:
-        qDebug() << "sign up\n";
+        qDebug() << "Signed In successfully\n";
+        toMainWindow();
+        message.setWindowTitle("Авторизация");
+        message.setText("Вы успешно вошли в систему!");
+        message.setIcon(QMessageBox::Information);
+        message.exec();
         break;
     case 2:
+        qDebug() << "Sign Up successfully\n";
+        message.setWindowTitle("Регистрация");
+        message.setText("Вы успешно зарегестрировались");
+        message.setIcon(QMessageBox::Information);
+        message.exec();
+        break;
+    case 3:
         qDebug() << "stat\n";
+        break;
+    case 4:
+        qDebug() << "allstat\n";
         break;
     }
 }

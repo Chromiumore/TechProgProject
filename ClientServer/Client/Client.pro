@@ -13,6 +13,7 @@ CONFIG += c++17
 SOURCES += \
     authwindow.cpp \
     back.cpp \
+    clientsingleton.cpp \
     main.cpp \
     userinterface.cpp \
     workspace.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 HEADERS += \
     authwindow.h \
     back.h \
+    clientsingleton.h \
     userinterface.h \
     workspace.h \
     workwindow.h

@@ -1,0 +1,8 @@
+#ifndef CLIENTSINGLETONDESTROYER_H
+#define CLIENTSINGLETONDESTROYER_H
+
+#include "clientsingleton.h"
+
+
+
+#endif // CLIENTSINGLETONDESTROYER_H

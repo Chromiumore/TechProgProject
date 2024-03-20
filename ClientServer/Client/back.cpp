@@ -1,72 +1,33 @@
 #include "back.h"
 #include <string>
-#include <QDebug>
+#include "clientsingleton.h"
 
 Back::Back()
 {
-    mTcpSocket = new QTcpSocket(this);
-    connect(mTcpSocket, &QTcpSocket::readyRead, this, &Back::slotClientRead);
-    connect(mTcpSocket, &QTcpSocket::disconnected, this, &Back::slotClientDisconect);
-    mTcpSocket->connectToHost("127.0.0.1", 33333);
-
     interface = new UserInterface;
-    ws = new Workspace;
 
-    connect(interface, &UserInterface::signInSignal, this, &Back::signInRequest);
-    connect(interface, &UserInterface::signUpSignal, this, Back::signUpRequest);
+    connect(interface, &UserInterface::signalFromInterface, this, &Back::sendRequest);
+
+    connect(ClientSingleton::getInstance(), &ClientSingleton::answerSignal, this, &Back::back_parsing);
 }
 
 Back::~Back()
 {
     delete interface;
-    delete ws;
 }
 
-void Back::signUpRequest(QString login, QString password)
+void Back::sendRequest(int _code, QString _login, QString _password, QString _email)
 {
-    std::string num = "1";
+    std::string login = _login.toStdString();
+    std::string password = _password.toStdString();
+    std::string email = _email.toStdString();
+    std::string code = std::to_string(_code);
     std::string sep = "%";
-    QString req = QString::fromStdString(num + sep + login.toStdString() + sep + password.toStdString());
-    mTcpSocket->write(req.toUtf8());
-    qDebug() << "signIn request: " << req;
+    QString req = QString::fromStdString(code + sep + login + sep + password + sep + email);
+    ClientSingleton::getInstance()->slotClientSend(req.toUtf8());
 }
 
-void Back::signInRequest(QString login, QString password)
+void Back::back_parsing(QByteArray array)
 {
-    std::string num = "0";
-    std::string sep = "%";
-    QString req = QString::fromStdString(num + sep + login.toStdString() + sep + password.toStdString());
-    mTcpSocket->write(req.toUtf8());
-}
-
-void Back::statRequest(QString login)
-{
-    std::string num = "2";
-    std::string sep = "%";
-    QString req = QString::fromStdString(num + sep + login.toStdString());
-    mTcpSocket->write(req.toUtf8());
-}
-
-
-void Back::slotClientRead()
-{
-    QByteArray array;
-
-    while(mTcpSocket->bytesAvailable()>0)
-    {
-        array = mTcpSocket->readAll();
-        qDebug()<< "array: " << array<<"\n";
-    }
     interface->codeManager(array.toInt());
-}
-
-
-void Back::slotClientDisconect()
-{
-    mTcpSocket->deleteLater();
-}
-
-int Back::slotClientSend()
-{
-    return 1;
 }

@@ -6,6 +6,10 @@ AuthWindow::AuthWindow(QWidget *parent)
     , ui(new Ui::AuthWindow)
 {
     ui->setupUi(this);
+
+    isReg = true;
+    ui->emailLabel->setVisible(!isReg);
+    ui->emailLineEdit->setVisible(!isReg);
 }
 
 AuthWindow::~AuthWindow()
@@ -15,13 +19,17 @@ AuthWindow::~AuthWindow()
 
 void AuthWindow::on_signInButton_clicked()
 {
-    emit signInSignal();
+    isReg = false;
+    ui->emailLabel->setVisible(!isReg);
+    ui->emailLineEdit->setVisible(!isReg);
 }
 
 
 void AuthWindow::on_signUpButton_clicked()
 {
-    emit signUpSignal();
+    isReg = true;
+    ui->emailLabel->setVisible(!isReg);
+    ui->emailLineEdit->setVisible(!isReg);
 }
 
 QString AuthWindow::getLogin()
@@ -33,3 +41,17 @@ QString AuthWindow::getPassword()
 {
     return ui->passwordLineEdit->text();
 }
+
+QString AuthWindow::getEmail()
+{
+    return ui->emailLineEdit->text();
+}
+
+void AuthWindow::on_confirmButton_clicked()
+{
+    if (isReg)
+        emit signUp();
+    else
+        emit signIn();
+}
+

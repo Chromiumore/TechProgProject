@@ -39,37 +39,33 @@ namespace {
 struct qt_meta_stringdata_CLASSUserInterfaceENDCLASS_t {};
 static constexpr auto qt_meta_stringdata_CLASSUserInterfaceENDCLASS = QtMocHelpers::stringData(
     "UserInterface",
-    "signInSignal",
+    "signalFromInterface",
     "",
-    "signUpSignal",
     "toMainWindow",
     "toAuthWindow"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSUserInterfaceENDCLASS_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[10];
     char stringdata0[14];
-    char stringdata1[13];
+    char stringdata1[20];
     char stringdata2[1];
     char stringdata3[13];
     char stringdata4[13];
-    char stringdata5[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSUserInterfaceENDCLASS_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_CLASSUserInterfaceENDCLASS_t qt_meta_stringdata_CLASSUserInterfaceENDCLASS = {
     {
         QT_MOC_LITERAL(0, 13),  // "UserInterface"
-        QT_MOC_LITERAL(14, 12),  // "signInSignal"
-        QT_MOC_LITERAL(27, 0),  // ""
-        QT_MOC_LITERAL(28, 12),  // "signUpSignal"
-        QT_MOC_LITERAL(41, 12),  // "toMainWindow"
-        QT_MOC_LITERAL(54, 12)   // "toAuthWindow"
+        QT_MOC_LITERAL(14, 19),  // "signalFromInterface"
+        QT_MOC_LITERAL(34, 0),  // ""
+        QT_MOC_LITERAL(35, 12),  // "toMainWindow"
+        QT_MOC_LITERAL(48, 12)   // "toAuthWindow"
     },
     "UserInterface",
-    "signInSignal",
+    "signalFromInterface",
     "",
-    "signUpSignal",
     "toMainWindow",
     "toAuthWindow"
 };
@@ -83,24 +79,22 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSUserInterfaceENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   38,    2, 0x06,    1 /* Public */,
-       3,    2,   43,    2, 0x06,    4 /* Public */,
+       1,    4,   32,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,   48,    2, 0x0a,    7 /* Public */,
-       5,    0,   49,    2, 0x0a,    8 /* Public */,
+       3,    0,   41,    2, 0x0a,    6 /* Public */,
+       4,    0,   42,    2, 0x0a,    7 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    2,    2,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    2,    2,
+    QMetaType::Void, QMetaType::Int, QMetaType::QString, QMetaType::QString, QMetaType::QString,    2,    2,    2,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -118,12 +112,10 @@ Q_CONSTINIT const QMetaObject UserInterface::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSUserInterfaceENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<UserInterface, std::true_type>,
-        // method 'signInSignal'
+        // method 'signalFromInterface'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
-        // method 'signUpSignal'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'toMainWindow'
@@ -140,25 +132,17 @@ void UserInterface::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         auto *_t = static_cast<UserInterface *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->signInSignal((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 1: _t->signUpSignal((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 2: _t->toMainWindow(); break;
-        case 3: _t->toAuthWindow(); break;
+        case 0: _t->signalFromInterface((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4]))); break;
+        case 1: _t->toMainWindow(); break;
+        case 2: _t->toAuthWindow(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (UserInterface::*)(QString , QString );
-            if (_t _q_method = &UserInterface::signInSignal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (UserInterface::*)(int , QString , QString , QString );
+            if (_t _q_method = &UserInterface::signalFromInterface; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
-                return;
-            }
-        }
-        {
-            using _t = void (UserInterface::*)(QString , QString );
-            if (_t _q_method = &UserInterface::signUpSignal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 1;
                 return;
             }
         }
@@ -184,28 +168,21 @@ int UserInterface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 3;
     }
     return _id;
 }
 
 // SIGNAL 0
-void UserInterface::signInSignal(QString _t1, QString _t2)
+void UserInterface::signalFromInterface(int _t1, QString _t2, QString _t3, QString _t4)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
-}
-
-// SIGNAL 1
-void UserInterface::signUpSignal(QString _t1, QString _t2)
-{
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
-    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
