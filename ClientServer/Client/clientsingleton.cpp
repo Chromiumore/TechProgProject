@@ -1,4 +1,5 @@
 #include "clientsingleton.h"
+#include <QDebug>
 
 ClientSingleton::ClientSingleton()
 {
@@ -6,11 +7,13 @@ ClientSingleton::ClientSingleton()
     connect(mTcpSocket, &QTcpSocket::readyRead, this, &ClientSingleton::slotClientRead);
     connect(mTcpSocket, &QTcpSocket::disconnected, this, &ClientSingleton::slotClientDisconect);
     mTcpSocket->connectToHost("127.0.0.1", 33333);
+    qDebug() << "ClientSingleton::ClientSingleton  |  singleton initialized\n";
 }
 
 ClientSingleton::~ClientSingleton()
 {
     mTcpSocket->close();
+    qDebug() << "ClientSingleton::~ClientSingleton  |  singleton destroyed\n";
 }
 
 ClientSingleton* ClientSingleton::getInstance(){
@@ -45,13 +48,16 @@ void ClientSingleton::slotClientRead()
     }
     //    interface->codeManager(array.toInt());
     emit answerSignal(array);
+    qDebug() << "ClientSingleton::slotClientRead  |  getting server answer\n";
 }
 void ClientSingleton::slotClientDisconect()
 {
     mTcpSocket->deleteLater();
+    qDebug() << "ClientSingleton::slotClientDisconect  |  disconnected from server\n";
 }
 
 void ClientSingleton::slotClientSend(QByteArray array)
 {
     mTcpSocket->write(array);
+    qDebug() << "ClientSingleton::slotClientSend  |  sending request to server\n";
 }

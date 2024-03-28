@@ -25,22 +25,22 @@ int ServerFunc::parsing(QString str)
 
     switch(func_code)
     {
-    case 0:
+    case 1:
         result_code = auth(login, password);
         break;
-    case 1:
+    case 2:
         result_code = reg(login, password, email);
         break;
-    case 2:
+    case 3:
         result_code = lookStat(login);
         break;
-    case 3:
+    case 4:
         result_code = lookAllStat();
         break;
-    case 4:
+    case 5:
         result_code = delUser(login);
         break;
-    case 5:
+    case 6:
         result_code = resetStat(login);
         break;
     }

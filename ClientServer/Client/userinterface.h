@@ -16,13 +16,14 @@ public:
     UserInterface();
     ~UserInterface();
 
-    void signIn();
-    void signUp();
     void codeManager(int);
 
 public slots:
     void toMainWindow();
     void toAuthWindow();
+
+    void signIn();
+    void signUp();
 
 private:
     AuthWindow *authW;
